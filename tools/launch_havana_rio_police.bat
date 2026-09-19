@@ -2,21 +2,27 @@
 rem ============================================================================
 rem launch_havana_rio_police.bat [model] [dry|test [frames]]
 rem
-rem   Drives a RIO special body as the player's car in HAVANA, daytime,
-rem   multiplayer, with combatd2 (carhacks) the only module enabled. This is the
-rem   setup for chasing the imported-car texture problems.
+rem   Drives RIO's police car as the player's car in HAVANA, daytime, multiplayer,
+rem   with combatd2 (carhacks) the only module enabled. This is the setup for
+rem   chasing the imported-car texture problems.
 rem
-rem   model  Rio special body to drive. Rio's specials are 8, 9, 10 and 12 - and
-rem          8 is the BUS, so 9, 10 and 12 are the candidates. Default 9.
-rem   dry    print what would be written and launched, change nothing, launch nothing
+rem   RIO's police car is model 0 (found by cycling - see VEHICLES.md, same as
+rem   HAVANA's). The import puts it in HAVANA's resident slot 0, and the player's
+rem   car is chosen on the command line: -car <model> makes the engine spawn the
+rem   player in whichever resident slot holds that model - slot 0, the one we
+rem   imported.
+rem
+rem   model  the model to drive. Default 0, RIO's police car. Other RIO bodies can
+rem          be tried: 1..4 are the civilian cars, 8, 10 and 12 the specials
+rem          (8 is the bus).
+rem   dry    print the plan only, write nothing, launch nothing
 rem   test   add -frames and a seed so the run exits by itself and is replayable
 rem
-rem   NOT -car slotN: those slot numbers are offset by the special bodies
-rem   (carNumLookup = 1,2,3,4,0,8,9,10,11,12, so -car slot6 is model 8, the bus).
-rem   The model number here is the model number.
+rem   NOT -car slotN: frontend slots are offset (carNumLookup = 1,2,3,4,0,8,9,10,
+rem   11,12, so -car slot6 is model 8, the bus). -car takes the MODEL number.
 rem
 rem   Examples:
-rem     launch_havana_rio_police.bat            : model 9, play
+rem     launch_havana_rio_police.bat            : model 0 (RIO police), play
 rem     launch_havana_rio_police.bat 10         : model 10, play
 rem     launch_havana_rio_police.bat 12 test 90 : model 12, self-exiting test run
 rem     launch_havana_rio_police.bat dry        : show the plan only
@@ -31,6 +37,13 @@ setlocal
 set "EXEDIR=C:\Users\Jaret\Documents\Projects\REDRIVER2\src_rebuild\bin\Release_dev"
 set "CFG=%EXEDIR%\JERICHO\CONFIG\carhacks.ini"
 
+rem ---- the Rio car goes into HAVANA resident slot 0 ---------------------------
+rem HAVANA has no model 0 of its own (its residents are 1 2 3 3 4), so slot 0 is
+rem where the imported Rio police car lands, and -car 0 spawns the player there.
+set "ISLOT=0"
+set "SRC=3"
+set "LEVEL=havana"
+
 rem ---- arguments, flat ifs only ---------------------------------------------
 set "MODEL=%~1"
 set "MODE=%~2"
@@ -41,10 +54,10 @@ if errorlevel 1 goto :nomodel
 goto :parsed
 :nomodel
 set "MODE=%~1"
-set "MODEL=9"
+set "MODEL=0"
 :parsed
 
-if "%MODEL%"=="" set "MODEL=9"
+if "%MODEL%"=="" set "MODEL=0"
 if "%MODE%"=="" set "MODE=play"
 
 set "TESTARGS="
@@ -56,13 +69,13 @@ set "TESTARGS=-frames %FRAMES% -seed %SEED%"
 :havetestargs
 
 echo.
-echo   level          : havana, daytime, -mp 1
+echo   level          : %LEVEL%, daytime, -mp 1
 echo   modules        : combatd2 [carhacks] only
-echo   player car     : RIO special model %MODEL%
-echo   import         : slot 5 to RIO model %MODEL%
+echo   player car     : RIO model %MODEL%  (0 = the Rio police car)
+echo   import         : slot %ISLOT% to RIO model %MODEL%
 if /i "%MODE%"=="test" echo   test mode      : frames=%FRAMES% seed=%SEED%
 echo   config         : %CFG%
-echo   command        : REDRIVER2_dev.exe -nointro -mp 1 -level havana -car %MODEL% -weather none -time day %TESTARGS%
+echo   command        : REDRIVER2_dev.exe -nointro -mp 1 -level %LEVEL% -car %MODEL% -weather none -time day %TESTARGS%
 echo.
 
 if /i not "%MODE%"=="dry" goto :notdry
@@ -71,17 +84,14 @@ endlocal
 exit /b 0
 :notdry
 
-rem ---- the import: Rio's chosen special body into spare resident slot 5 ----
-rem Slot 5 is a spare resident slot the level leaves empty. The player's car is
-rem chosen on the command line (-car <model>), and the engine spawns the player
-rem in whichever resident slot holds that model - slot 5, the one we imported.
+rem ---- the import ------------------------------------------------------------
 echo cross_city_vehicles = 1 > "%CFG%"
-echo import = 5:3:%MODEL% >> "%CFG%"
+echo import = %ISLOT%:%SRC%:%MODEL% >> "%CFG%"
 
 echo   wrote          : %CFG%
 type "%CFG%"
 echo.
 
 cd /d "%EXEDIR%"
-start "" "REDRIVER2_dev.exe" -nointro -mp 1 -level havana -car %MODEL% -weather none -time day %TESTARGS%
+start "" "REDRIVER2_dev.exe" -nointro -mp 1 -level %LEVEL% -car %MODEL% -weather none -time day %TESTARGS%
 endlocal
