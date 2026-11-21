@@ -4,6 +4,19 @@ Everything in this folder is for driving and inspecting the game from a terminal
 of it is source-of-truth here; copies for convenience also sit in
 `src_rebuild/bin/Release_dev/`.
 
+## Tests
+
+This mod is its own repository; its checks need no JERICHO checkout:
+
+```sh
+python tools/test_vehicle_profiles.py      # or: python -m pytest tools/test_vehicle_profiles.py -q
+```
+
+It checks the profile JSON against `profiles/generated_profiles.c` (`gen_profiles.py --check`).
+The pack-scaffolder test runs only when the local CROSSFIRE pack (`vehicles/bank.json`)
+is present; `packprofile.py` finds the game folder when the mod sits at
+`JERICHO/MODS/cainescrossfire` (or take `--root`).
+
 ## Debug flags the engine understands
 
 These only exist in `Release_dev` (they are inside the engine's `DEBUG_OPTIONS`

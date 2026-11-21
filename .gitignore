@@ -1,0 +1,9 @@
+obj/
+lib/
+*.obj
+*.lib
+*.pdb
+*.idb
+*.exp
+*.log
+__pycache__/

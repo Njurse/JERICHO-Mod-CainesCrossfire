@@ -43,9 +43,29 @@ def prettify(name: str) -> str:
     return text.title() if text else name
 
 
-def runtime_path(path: Path, root: Path) -> str:
+def game_root(mod: Path):
+    """The game/repo folder holding JERICHO/MODS/<this mod>, or None.
+
+    The mod is its own repository. Installed (or checked out) at
+    <root>/JERICHO/MODS/cainescrossfire it can spell paths relative to <root>;
+    a standalone checkout has no such folder, and paths are spelled as they
+    will be once it is installed."""
+    if mod.parent.name.upper() == "MODS" and mod.parent.parent.name.upper() == "JERICHO":
+        return mod.parent.parent.parent
+    return None
+
+
+def runtime_path(path: Path, root, mod: Path = None) -> str:
     """Spell an installed file relative to the game's data folder."""
     path = path.resolve()
+    if root is None:
+        # Standalone checkout: spell the path as it will be once the mod is
+        # installed at JERICHO/MODS/<mod>; outside the mod, keep it absolute.
+        try:
+            rel = path.relative_to(mod.resolve())
+            return "..\\JERICHO\\MODS\\%s\\%s" % (mod.name, str(rel).replace("/", "\\"))
+        except ValueError:
+            return str(path).replace("/", "\\")
     jericho = (root / "JERICHO").resolve()
 
     try:
@@ -80,8 +100,8 @@ def parse_stats(text: str):
 
 def main(argv=None) -> int:
     here = Path(__file__).resolve()
-    root = here.parents[4]
-    default_out = here.parent.parent / "profiles"
+    mod = here.parents[1]
+    default_out = mod / "profiles"
 
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -98,7 +118,11 @@ def main(argv=None) -> int:
                     help="CHICAGO|HAVANA|VEGAS|RIO|none (default: donor city)")
     ap.add_argument("--order-start", type=int, default=None,
                     help="assign consecutive profile order values from here")
+    ap.add_argument("--root", default=None,
+                    help="game folder holding JERICHO/ and DRIVER2/ (default: the folder this "
+                         "mod is installed under, if it sits at JERICHO/MODS/<mod>)")
     args = ap.parse_args(argv)
+    root = Path(args.root).resolve() if args.root else game_root(mod)
 
     bank_path = Path(args.bank)
     if bank_path.is_dir():
@@ -177,9 +201,9 @@ def main(argv=None) -> int:
 
         vehicle = {"bank": city, "model": slot}
         if lev is not None:
-            vehicle["lev"] = runtime_path(lev, root)
+            vehicle["lev"] = runtime_path(lev, root, mod)
         if lcf is not None:
-            vehicle["lcf"] = runtime_path(lcf, root)
+            vehicle["lcf"] = runtime_path(lcf, root, mod)
 
         profile = {
             "internal": internal,
