@@ -1,0 +1,560 @@
+{
+ "city": "CROSSFIRE",
+ "lev": "CROSSFIRE.LEV",
+ "lcf": "CROSSFIRE.LCF",
+ "size": 247808,
+ "order": [
+  {
+   "slot": 1,
+   "car": "CROSSFIRE_model1"
+  },
+  {
+   "slot": 2,
+   "car": "CROSSFIRE_model2"
+  }
+ ],
+ "included_sets": [
+  1,
+  4,
+  17,
+  50
+ ],
+ "pages": [
+  {
+   "set": 1,
+   "size": 33124
+  },
+  {
+   "set": 4,
+   "size": 33412
+  },
+  {
+   "set": 17,
+   "size": 34052
+  },
+  {
+   "set": 50,
+   "size": 34052
+  }
+ ],
+ "wheels": [
+  {
+   "variant": "clean",
+   "set": 4,
+   "island": [
+    128,
+    64,
+    192,
+    128
+   ],
+   "texid": 8
+  },
+  {
+   "variant": "damaged",
+   "set": 4,
+   "island": [
+    192,
+    64,
+    256,
+    128
+   ],
+   "texid": 9
+  },
+  {
+   "variant": "fast",
+   "set": 4,
+   "island": [
+    192,
+    64,
+    256,
+    128
+   ],
+   "texid": 9
+  }
+ ],
+ "wheel_segment": "v1",
+ "sounds": {
+  "models": [
+   1,
+   2
+  ],
+  "sirens": []
+ },
+ "palette_records": 347,
+ "page_base": 108544,
+ "warnings": [
+  "sound model 1 engine: +4.0 dB applied",
+  "sound model 1 engine: rms is 86% of full scale against retail's 29-39% - this sample will play loud, and with crest 1.9 its transients are already flat (set a lower `rms` or `gain_db` to sit it under)",
+  "sound model 1 engine: crest factor 1.9 (retail 2.6-3.4) - the source has been limited, so it will sound squashed",
+  "sound model 1 engine: trimmed from 1.92s to 1.79s to fit 16384 bytes (the SPU has no room for more)",
+  "sound model 1 engine: encode error is high (rms 6721) - the sample is probably too loud or too noisy for 4-bit ADPCM",
+  "sound model 1 engine: pitch x0.95 - declared rate 16000 Hz plays at 15200 Hz when the game asks 0.37",
+  "sound model 1 idle: +4.0 dB applied",
+  "sound model 1 idle: rms is 46% of full scale against retail's 29-39% - this sample will play loud, and with crest 2.8 its transients are already flat (set a lower `rms` or `gain_db` to sit it under)",
+  "sound model 1: 28976 bytes - engine 16384 B 2.05s rms 71% crest 1.4 field 15200 loop seam 26883; idle 9376 B 1.17s rms 45% crest 2.2 field 16000 loop seam 3110; third 3216 B 0.80s rms 29% crest 3.2 field 8000",
+  "sound model 2 engine: +4.0 dB applied",
+  "sound model 2 engine: pitch x0.95 - declared rate 16000 Hz plays at 15200 Hz when the game asks 0.37",
+  "sound model 2 idle: +4.0 dB applied",
+  "sound model 2 idle: pitch x0.90 - declared rate 16000 Hz plays at 14400 Hz when the game asks 0.37",
+  "sound model 2: 29856 bytes - engine 7712 B 0.96s rms 34% crest 2.9 field 15200 loop seam 91; idle 15808 B 1.98s rms 15% crest 3.7 field 14400 loop seam 28; third 6336 B 1.58s rms 27% crest 3.2 field 8000"
+ ],
+ "texture_moves": [
+  {
+   "kind": "body",
+   "set": 17,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     16,
+     0,
+     64,
+     17
+    ],
+    "tex_id": 0,
+    "clut_row": 0
+   },
+   "new": {
+    "rect": [
+     16,
+     0,
+     64,
+     17
+    ],
+    "tex_id": 24,
+    "clut_row": 24
+   }
+  },
+  {
+   "kind": "body",
+   "set": 17,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     0,
+     16,
+     17,
+     19
+    ],
+    "tex_id": 27,
+    "clut_row": 27
+   },
+   "new": {
+    "rect": [
+     0,
+     16,
+     17,
+     19
+    ],
+    "tex_id": 28,
+    "clut_row": 28
+   }
+  },
+  {
+   "kind": "body",
+   "set": 17,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     0,
+     18,
+     18,
+     32
+    ],
+    "tex_id": 29,
+    "clut_row": 29
+   },
+   "new": {
+    "rect": [
+     0,
+     18,
+     18,
+     32
+    ],
+    "tex_id": 30,
+    "clut_row": 30
+   }
+  },
+  {
+   "kind": "body",
+   "set": 17,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     14,
+     16,
+     64,
+     19
+    ],
+    "tex_id": 25,
+    "clut_row": 25
+   },
+   "new": {
+    "rect": [
+     14,
+     16,
+     64,
+     19
+    ],
+    "tex_id": 0,
+    "clut_row": 0
+   }
+  },
+  {
+   "kind": "body",
+   "set": 17,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     16,
+     16,
+     64,
+     19
+    ],
+    "tex_id": 26,
+    "clut_row": 26
+   },
+   "new": {
+    "rect": [
+     16,
+     16,
+     64,
+     19
+    ],
+    "tex_id": 0,
+    "clut_row": 0
+   }
+  },
+  {
+   "kind": "body",
+   "set": 17,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     0,
+     16,
+     17,
+     19
+    ],
+    "tex_id": 27,
+    "clut_row": 27
+   },
+   "new": {
+    "rect": [
+     0,
+     16,
+     17,
+     19
+    ],
+    "tex_id": 0,
+    "clut_row": 0
+   }
+  },
+  {
+   "kind": "body",
+   "set": 17,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     0,
+     16,
+     17,
+     19
+    ],
+    "tex_id": 27,
+    "clut_row": 27
+   },
+   "new": {
+    "rect": [
+     0,
+     16,
+     17,
+     19
+    ],
+    "tex_id": 0,
+    "clut_row": 0
+   }
+  },
+  {
+   "kind": "body",
+   "set": 17,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     0,
+     18,
+     18,
+     32
+    ],
+    "tex_id": 29,
+    "clut_row": 29
+   },
+   "new": {
+    "rect": [
+     0,
+     18,
+     18,
+     32
+    ],
+    "tex_id": 0,
+    "clut_row": 0
+   }
+  },
+  {
+   "kind": "body",
+   "set": 17,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     0,
+     18,
+     18,
+     32
+    ],
+    "tex_id": 29,
+    "clut_row": 29
+   },
+   "new": {
+    "rect": [
+     0,
+     18,
+     18,
+     32
+    ],
+    "tex_id": 0,
+    "clut_row": 0
+   }
+  },
+  {
+   "kind": "body",
+   "set": 17,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     17,
+     18,
+     64,
+     32
+    ],
+    "tex_id": 31,
+    "clut_row": 31
+   },
+   "new": {
+    "rect": [
+     17,
+     18,
+     64,
+     32
+    ],
+    "tex_id": 0,
+    "clut_row": 0
+   }
+  },
+  {
+   "kind": "body",
+   "set": 50,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     110,
+     160,
+     128,
+     185
+    ],
+    "tex_id": 31,
+    "clut_row": 31
+   },
+   "new": {
+    "rect": [
+     110,
+     160,
+     128,
+     185
+    ],
+    "tex_id": 10,
+    "clut_row": 10
+   }
+  },
+  {
+   "kind": "body",
+   "set": 50,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     94,
+     183,
+     111,
+     221
+    ],
+    "tex_id": 26,
+    "clut_row": 26
+   },
+   "new": {
+    "rect": [
+     94,
+     183,
+     111,
+     221
+    ],
+    "tex_id": 10,
+    "clut_row": 10
+   }
+  },
+  {
+   "kind": "body",
+   "set": 50,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     94,
+     183,
+     111,
+     224
+    ],
+    "tex_id": 27,
+    "clut_row": 27
+   },
+   "new": {
+    "rect": [
+     94,
+     183,
+     111,
+     224
+    ],
+    "tex_id": 10,
+    "clut_row": 10
+   }
+  },
+  {
+   "kind": "body",
+   "set": 50,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     110,
+     184,
+     128,
+     224
+    ],
+    "tex_id": 29,
+    "clut_row": 29
+   },
+   "new": {
+    "rect": [
+     110,
+     184,
+     128,
+     224
+    ],
+    "tex_id": 10,
+    "clut_row": 10
+   }
+  },
+  {
+   "kind": "body",
+   "set": 50,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     110,
+     183,
+     128,
+     224
+    ],
+    "tex_id": 30,
+    "clut_row": 30
+   },
+   "new": {
+    "rect": [
+     110,
+     183,
+     128,
+     224
+    ],
+    "tex_id": 10,
+    "clut_row": 10
+   }
+  },
+  {
+   "kind": "body",
+   "set": 50,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     110,
+     160,
+     128,
+     185
+    ],
+    "tex_id": 31,
+    "clut_row": 31
+   },
+   "new": {
+    "rect": [
+     110,
+     160,
+     128,
+     185
+    ],
+    "tex_id": 10,
+    "clut_row": 10
+   }
+  },
+  {
+   "kind": "body",
+   "set": 50,
+   "reason": "texture id remapped",
+   "old": {
+    "rect": [
+     110,
+     160,
+     128,
+     185
+    ],
+    "tex_id": 31,
+    "clut_row": 31
+   },
+   "new": {
+    "rect": [
+     110,
+     160,
+     128,
+     185
+    ],
+    "tex_id": 10,
+    "clut_row": 10
+   }
+  }
+ ],
+ "checks": {
+  "ok": true,
+  "problems": []
+ },
+ "bake_warnings": [
+  "page set 1: 3 texture id(s) [0, 1, 2] \u2014 each has its own CLUT row (one 16-entry row could not hold the snapped colours)",
+  "page set 4: composited the clean wheel from wheelclean.png into island (128, 64, 192, 128)",
+  "page set 4: composited the damaged wheel from wheeldam.png into island (192, 64, 256, 128)",
+  "page set 4: wheel clean owns tex id 8 (row 8) at [128, 64, 192, 128], corner index 0",
+  "page set 4: wheel damaged owns tex id 9 (row 9) at [192, 64, 256, 128], corner index 0",
+  "page set 4: 5 texture id(s) [7, 8, 9, 10, 11] \u2014 each has its own CLUT row (one 16-entry row could not hold the snapped colours)",
+  "page set 17: texture move body : {'rect': [16, 0, 64, 17], 'tex_id': 0, 'clut_row': 0} -> {'rect': [16, 0, 64, 17], 'tex_id': 24, 'clut_row': 24} (texture id remapped)",
+  "page set 17: texture move body : {'rect': [0, 16, 17, 19], 'tex_id': 27, 'clut_row': 27} -> {'rect': [0, 16, 17, 19], 'tex_id': 28, 'clut_row': 28} (texture id remapped)",
+  "page set 17: texture move body : {'rect': [0, 18, 18, 32], 'tex_id': 29, 'clut_row': 29} -> {'rect': [0, 18, 18, 32], 'tex_id': 30, 'clut_row': 30} (texture id remapped)",
+  "page set 17: texture move body : {'rect': [14, 16, 64, 19], 'tex_id': 25, 'clut_row': 25} -> {'rect': [14, 16, 64, 19], 'tex_id': 0, 'clut_row': 0} (texture id remapped)",
+  "page set 17: texture move body : {'rect': [16, 16, 64, 19], 'tex_id': 26, 'clut_row': 26} -> {'rect': [16, 16, 64, 19], 'tex_id': 0, 'clut_row': 0} (texture id remapped)",
+  "page set 17: texture move body : {'rect': [0, 16, 17, 19], 'tex_id': 27, 'clut_row': 27} -> {'rect': [0, 16, 17, 19], 'tex_id': 0, 'clut_row': 0} (texture id remapped)",
+  "page set 17: texture move body : {'rect': [0, 16, 17, 19], 'tex_id': 27, 'clut_row': 27} -> {'rect': [0, 16, 17, 19], 'tex_id': 0, 'clut_row': 0} (texture id remapped)",
+  "page set 17: texture move body : {'rect': [0, 18, 18, 32], 'tex_id': 29, 'clut_row': 29} -> {'rect': [0, 18, 18, 32], 'tex_id': 0, 'clut_row': 0} (texture id remapped)",
+  "page set 17: texture move body : {'rect': [0, 18, 18, 32], 'tex_id': 29, 'clut_row': 29} -> {'rect': [0, 18, 18, 32], 'tex_id': 0, 'clut_row': 0} (texture id remapped)",
+  "page set 17: texture move body : {'rect': [17, 18, 64, 32], 'tex_id': 31, 'clut_row': 31} -> {'rect': [17, 18, 64, 32], 'tex_id': 0, 'clut_row': 0} (texture id remapped)",
+  "page set 17: 20 texture id(s) [0, 3, 4, 7, 8, 11, 14, 15, 16, 19, 20, 23, 24, 25, 26, 27, 28, 29, 30, 31] \u2014 each has its own CLUT row (one 16-entry row could not hold the snapped colours)",
+  "page set 50: texture move body : {'rect': [110, 160, 128, 185], 'tex_id': 31, 'clut_row': 31} -> {'rect': [110, 160, 128, 185], 'tex_id': 10, 'clut_row': 10} (texture id remapped)",
+  "page set 50: texture move body : {'rect': [94, 183, 111, 221], 'tex_id': 26, 'clut_row': 26} -> {'rect': [94, 183, 111, 221], 'tex_id': 10, 'clut_row': 10} (texture id remapped)",
+  "page set 50: texture move body : {'rect': [94, 183, 111, 224], 'tex_id': 27, 'clut_row': 27} -> {'rect': [94, 183, 111, 224], 'tex_id': 10, 'clut_row': 10} (texture id remapped)",
+  "page set 50: texture move body : {'rect': [110, 184, 128, 224], 'tex_id': 29, 'clut_row': 29} -> {'rect': [110, 184, 128, 224], 'tex_id': 10, 'clut_row': 10} (texture id remapped)",
+  "page set 50: texture move body : {'rect': [110, 183, 128, 224], 'tex_id': 30, 'clut_row': 30} -> {'rect': [110, 183, 128, 224], 'tex_id': 10, 'clut_row': 10} (texture id remapped)",
+  "page set 50: texture move body : {'rect': [110, 160, 128, 185], 'tex_id': 31, 'clut_row': 31} -> {'rect': [110, 160, 128, 185], 'tex_id': 10, 'clut_row': 10} (texture id remapped)",
+  "page set 50: texture move body : {'rect': [110, 160, 128, 185], 'tex_id': 31, 'clut_row': 31} -> {'rect': [110, 160, 128, 185], 'tex_id': 10, 'clut_row': 10} (texture id remapped)",
+  "page set 50: 18 texture id(s) [0, 3, 10, 11, 13, 14, 15, 16, 17, 20, 24, 25, 26, 27, 28, 29, 30, 31] \u2014 each has its own CLUT row (one 16-entry row could not hold the snapped colours)",
+  "palette: clut map written to clut-dump.txt"
+ ]
+}
